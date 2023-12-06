@@ -1,0 +1,33 @@
+BEGIN
+    // Initialize counters
+    characterCount = 0
+    wordCount = 0
+    vowelCount = 0
+
+    // Read the sentence character by character until the point is encountered
+    WHILE (currentCharacter != '.')
+        // Read the next character
+        currentCharacter = ReadNextCharacter()
+
+        // Increment character count
+        characterCount = characterCount + 1
+
+        // Check if the current character is a space to identify a word
+        IF (currentCharacter == ' ')
+            // Increment word count
+            wordCount = wordCount + 1
+
+        // Check if the current character is a vowel (case-insensitive)
+        IF (IsVowel(currentCharacter))
+            // Increment vowel count
+            vowelCount = vowelCount + 1
+    END WHILE
+
+    // Increment word count for the last word after the point
+    wordCount = wordCount + 1
+
+    // Output results
+    OUTPUT "Length of the sentence:", characterCount
+    OUTPUT "Number of words in the sentence:", wordCount
+    OUTPUT "Number of vowels in the sentence:", vowelCount
+END
